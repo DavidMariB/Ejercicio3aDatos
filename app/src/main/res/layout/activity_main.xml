@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dmb.ejercicio3adatos.MainActivity">
+
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre:"
+        android:layout_alignBaseline="@+id/et1"
+        android:textSize="17dp"/>
+
+    <EditText
+        android:id="@+id/et1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Introduce tu nombre"
+        android:layout_toRightOf="@+id/tv1"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DNI:"
+        android:layout_below="@+id/tv1"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/et2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Introduce tu DNI"
+        android:layout_toRightOf="@+id/tv2"
+        android:layout_below="@+id/et1"
+        android:layout_alignStart="@+id/et1"/>
+
+    <TextView
+        android:id="@+id/tv3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha de \nNacimiento:"
+        android:layout_below="@+id/tv2"
+        android:layout_marginTop="20dp"/>
+
+    <ImageButton
+        android:id="@+id/datePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/et1"
+        android:layout_below="@+id/et2"
+        android:layout_toRightOf="@+id/tv3"
+        app:srcCompat="@android:drawable/ic_menu_my_calendar"
+        android:onClick="datePicker"/>
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et2"
+        android:layout_toRightOf="@+id/datePicker"/>
+
+</android.widget.RelativeLayout>
