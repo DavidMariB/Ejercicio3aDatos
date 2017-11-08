@@ -29,9 +29,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DNI:"
+        android:textSize="17dp"
         android:layout_below="@+id/tv1"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_alignStart="@+id/tv1"/>
 
     <EditText
         android:id="@+id/et2"
@@ -49,7 +50,7 @@
         android:text="Fecha de \nNacimiento:"
         android:layout_below="@+id/tv2"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_alignStart="@+id/tv1"/>
 
     <ImageButton
         android:id="@+id/datePicker"
@@ -66,7 +67,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et2"
-        android:layout_toRightOf="@+id/datePicker"/>
+        android:layout_toRightOf="@+id/datePicker"
+        android:focusable="false"/>
 
     <RadioGroup
         android:id="@+id/rg"

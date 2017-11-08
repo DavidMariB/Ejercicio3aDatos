@@ -1,6 +1,9 @@
 package com.dmb.ejercicio3adatos;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageButton imb;
     private Calendar myCalendar;
-    private EditText showDate, et1, et2;
-    private RadioButton rb1, rb2;
+    private EditText showDate,et1,et2;
+    private RadioButton rb1,rb2;
     private DatePickerDialog.OnDateSetListener date;
 
     @Override
@@ -74,9 +77,38 @@ public class MainActivity extends AppCompatActivity {
         showDate.setText("");
         rb1.setChecked(false);
         rb2.setChecked(false);
+
+        et1.setEnabled(true);
+        et2.setEnabled(true);
+        showDate.setEnabled(true);
+        imb.setEnabled(true);
+        rb1.setEnabled(true);
+        rb2.setEnabled(true);
     }
 
     public void nextActivity(View v){
+        SharedPreferences preferences = getSharedPreferences("datos", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = preferences.edit();
+        edit.putString("name",et1.getText().toString());
+        edit.putString("dni",et2.getText().toString());
+        edit.putString("birthday",showDate.getText().toString());
+        if (rb1.isChecked()) {
+            edit.putString("gender",rb1.getText().toString());
+        }else if(rb2.isChecked()){
+            edit.putString("gender",rb2.getText().toString());
+        }else{
+            edit.putString("",null);
+        }
+        edit.apply();
 
+        et1.setEnabled(false);
+        et2.setEnabled(false);
+        showDate.setEnabled(false);
+        imb.setEnabled(false);
+        rb1.setEnabled(false);
+        rb2.setEnabled(false);
+
+        Intent intent = new Intent(this,Main2Activity.class);
+        startActivity(intent);
     }
 }
