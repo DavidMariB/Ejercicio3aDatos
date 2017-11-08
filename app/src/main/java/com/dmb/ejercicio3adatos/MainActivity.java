@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -16,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageButton imb;
     private Calendar myCalendar;
-    private EditText showDate;
+    private EditText showDate, et1, et2;
+    private RadioButton rb1, rb2;
     private DatePickerDialog.OnDateSetListener date;
 
     @Override
@@ -27,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
         myCalendar = Calendar.getInstance();
         imb = (ImageButton)findViewById(R.id.datePicker);
         showDate = (EditText) findViewById(R.id.date);
+        et1 = (EditText) findViewById(R.id.et1);
+        et2 = (EditText) findViewById(R.id.et2);
+        rb1 = (RadioButton) findViewById(R.id.rb1);
+        rb2 = (RadioButton) findViewById(R.id.rb2);
 
         date = new DatePickerDialog.OnDateSetListener() {
 
@@ -60,5 +66,17 @@ public class MainActivity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.UK);
 
         showDate.setText(sdf.format(myCalendar.getTime()));
+    }
+
+    public void resetFields(View v){
+        et1.setText("");
+        et2.setText("");
+        showDate.setText("");
+        rb1.setChecked(false);
+        rb2.setChecked(false);
+    }
+
+    public void nextActivity(View v){
+
     }
 }
